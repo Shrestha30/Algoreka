@@ -5,7 +5,7 @@
  */
 package algoreka;
 
-import View.HomePage;
+import view.HomePage;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

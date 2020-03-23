@@ -13,20 +13,20 @@ public class HomeButton extends Button {
     
     private final String Font_PATH = "src/model/homeResources/kenvector_future.ttf";
     private final String BUTTON_PRESSED_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button_pressed.png');";
-    private final String BUTTON_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button.png');";
+    private final String BUTTON_STYLE = "-fx-background-repeat: round;-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button.png');";
     
     public HomeButton(String text){
         setText(text);
         setHomeButtonFont();
         setStyle(BUTTON_STYLE);
         setPrefHeight(49);
-        setPrefWidth(190);
+        setPrefWidth(226);
         initializeHomrButtonListeners();
     }
     
     private void setHomeButtonFont(){
         try {
-            setFont(Font.loadFont(new FileInputStream(Font_PATH), 23));
+            setFont(Font.loadFont(new FileInputStream(Font_PATH), 15));
         } catch (FileNotFoundException e) {
             setFont(Font.font("Verdana", 23));
             System.out.print("Not working");
