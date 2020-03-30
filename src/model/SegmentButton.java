@@ -9,22 +9,24 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 
-public class HomeButton extends Button {
+public class SegmentButton extends Button{
     
-    private final String Font_PATH = "src/model/homeResources/ethnocentric.ttf";
-    private final String BUTTON_PRESSED_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button_pressed.png');";
-    private final String BUTTON_STYLE = "-fx-background-repeat: round;-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button.png');";
+    private final String Font_PATH = "src/model/segmentTreeResources/good_times.ttf";
+    private final String BUTTON_PRESSED_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/model/segmentTreeResources/yellow_button02.png'); -fx-background-repeat: round";
+    private final String BUTTON_STYLE = "-fx-background-repeat: round;-fx-background-color: transparent; -fx-background-image: url('/model/segmentTreeResources/yellow_button01.png');";
     
-    public HomeButton(String text){
+    private int height = 49;
+    
+    public SegmentButton(String text){
         setText(text);
-        setHomeButtonFont();
+        setSegmentButtonFont();
         setStyle(BUTTON_STYLE);
-        setPrefHeight(49);
+        setPrefHeight(height);
         setPrefWidth(210);
-        initializeHomrButtonListeners();
+        initializeSegmentButtonListeners();
     }
     
-    private void setHomeButtonFont(){
+    private void setSegmentButtonFont(){
         try {
             setFont(Font.loadFont(new FileInputStream(Font_PATH), 20));
         } catch (FileNotFoundException e) {
@@ -33,31 +35,31 @@ public class HomeButton extends Button {
         }
     }
     
-    private void setHomeButtonPressedStyle(){
+    private void setSegmentButtonPressedStyle(){
         setStyle(BUTTON_PRESSED_STYLE);
-        setPrefHeight(45);
+        setPrefHeight(height);
         setLayoutY(getLayoutY()+5);
     }
     
-    private void setHomeButtonReleasedStyle(){
+    private void setSegmentButtonReleasedStyle(){
         setStyle(BUTTON_STYLE);
-        setPrefHeight(49);
+        setPrefHeight(height);
         setLayoutY(getLayoutY()-5);
     }
     
-    public void initializeHomrButtonListeners(){
+    public void initializeSegmentButtonListeners(){
         
         setOnMousePressed(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent event){
                 if(event.getButton().equals(MouseButton.PRIMARY))
-                    setHomeButtonPressedStyle();
+                    setSegmentButtonPressedStyle();
             }
         });
         
         setOnMouseReleased(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent event){
                 if(event.getButton().equals(MouseButton.PRIMARY))
-                    setHomeButtonReleasedStyle();
+                    setSegmentButtonReleasedStyle();
             }
         });
         
@@ -72,5 +74,15 @@ public class HomeButton extends Button {
                 setEffect(null);
             }
         });
+        
     }
+    
+    public void setHeight(int x){
+        if(x>49)
+        {
+            height = x;
+            setPrefHeight(height);
+        }
+    }
+    
 }

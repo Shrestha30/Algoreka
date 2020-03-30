@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/%20Algoreka/src/view/HomePage.java</file>
             <file>file:/E:/%20Algoreka/src/algoreka/Algoreka.java</file>
-            <file>file:/E:/%20Algoreka/src/View/HomePage.java</file>
+            <file>file:/E:/%20Algoreka/src/model/SegmentLabel.java</file>
+            <file>file:/E:/%20Algoreka/src/model/SegmentNode.java</file>
             <file>file:/E:/%20Algoreka/src/model/HomeButton.java</file>
+            <file>file:/E:/%20Algoreka/src/model/SegmentButton.java</file>
+            <file>file:/E:/%20Algoreka/src/view/SegmentTree.java</file>
         </group>
     </open-files>
 </project-private>

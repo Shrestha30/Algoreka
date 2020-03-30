@@ -2,6 +2,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -73,6 +75,14 @@ public class HomePage {
     private void createSegmentTreeButton(){
         HomeButton button= new HomeButton("Segment Tree");
         addOptionButton(button);
+        
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SegmentTree tree = new SegmentTree();
+                tree.segmentStart(homeStage);
+            }
+        });
     }
     
     private void createHeapButton(){
