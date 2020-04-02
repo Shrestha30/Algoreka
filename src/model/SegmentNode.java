@@ -64,7 +64,7 @@ public class SegmentNode {
         tempText.setPrefWidth(radius*2);
         tempText.setPrefHeight(radius*2);
         tempText.setLayoutX(circleX+.5*radius);
-        tempText.setLayoutY(circleY-1.5*radius);
+        tempText.setLayoutY(circleY-radius);
         tempText.setAlignment(Pos.CENTER);
         
         return tempText;

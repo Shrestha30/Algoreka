@@ -3,14 +3,9 @@ package view;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -54,13 +49,13 @@ public class SegmentTree {
     boolean showLabel= true;
     
     private int input,data[],height,nodeValue[];
-    SegmentNode[] node;
-    Line line[];
-    int lineInd=0;
+    private SegmentNode[] node;
+    private Line line[];
+    private int lineInd=0;
     
-    long timeDelay=1000000000,previousTime=0;
-    AnimationTimer animation;
-    Queue<Integer> nodeQueue= new LinkedList<>(),actionQueue= new LinkedList<>(),valueQueue= new LinkedList<>();
+    private long timeDelay=1000000000,previousTime=0;
+    private AnimationTimer animation;
+    private Queue<Integer> nodeQueue= new LinkedList<>(),actionQueue= new LinkedList<>(),valueQueue= new LinkedList<>();
     private final int ORANGE=1,SET_VALUE=2,GREEN=3,ADD=4,LINE=5,AQUA=6;
     
     public SegmentTree()
@@ -98,8 +93,8 @@ public class SegmentTree {
         });
         
         TextField timeField = new TextField();
-        timeField.setPromptText("Set delay of animation(nano seconds)");
-        timeField.setPrefWidth(300);
+        timeField.setPromptText("Set delay of animation(seconds)");
+        timeField.setPrefWidth(250);
         
         Button setTimeDelay = new Button("Set");
         
@@ -114,7 +109,7 @@ public class SegmentTree {
             @Override
             public void handle(ActionEvent event) {
                 try{
-                    timeDelay = Integer.parseInt( timeField.getText() );
+                    timeDelay = (long)(1000000000*Double.parseDouble(timeField.getText() ));
                 }catch(NumberFormatException e){}
             }
         });
@@ -345,8 +340,8 @@ public class SegmentTree {
             double circleX = (begX+endX)/2;
             double circleY = (parentY+blockHeight*2);
         
-            double lineX = parentX + blockHeight*0.5*Math.sin( Math.atan( (parentY-circleY)/(parentX-circleX) ) );
-            double lineY = parentY + Math.abs( blockHeight*0.5*Math.cos( Math.atan( (parentY-circleY)/(parentX-circleX) ) ) );
+            double lineX = parentX + radius*Math.sin( Math.atan( (parentY-circleY)/(parentX-circleX) ) );
+            double lineY = parentY + Math.abs( radius*Math.cos( Math.atan( (parentY-circleY)/(parentX-circleX) ) ) );
         
             line[lineInd] = new Line(lineX, lineY, circleX, circleY);
             actionLine(lineInd++);
@@ -417,7 +412,7 @@ public class SegmentTree {
         double blockHeight = (CENTRE_HEIGHT-30-5)/(height*2-1);
         double circleX = CENTRE_WIDTH/2;
         double circleY = 5+ blockHeight/2;
-        double radius = Double.min(blockHeight/2, CENTRE_WIDTH/input);
+        double radius = Double.min(blockHeight/2, CENTRE_WIDTH/input/4.0);
         
         node = new SegmentNode[input*4];
         nodeValue = new int[input*4];
