@@ -88,6 +88,14 @@ public class HomePage {
     private void createHeapButton(){
         HomeButton button= new HomeButton("Heap");
         addOptionButton(button);
+        
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Heap tree = new Heap();
+                tree.segmentStart(homeStage);
+            }
+        });
     }
     
     private void createArticulationPointButton(){

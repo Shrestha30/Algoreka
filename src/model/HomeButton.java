@@ -15,8 +15,8 @@ import javafx.scene.text.Font;
 public class HomeButton extends Button {
     
     private final String Font_PATH = "src/model/homeResources/ethnocentric.ttf";
-    private final String BUTTON_PRESSED_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button_pressed.png');";
-    private final String BUTTON_STYLE = "-fx-background-repeat: round;-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/green_button.png');";
+    private final String BUTTON_PRESSED_STYLE = "-fx-background-repeat: round; -fx-background-color: transparent; -fx-background-image: url('/model/homeResources/blue_button02.png'); -fx-background-size: contain;";
+    private final String BUTTON_STYLE = "-fx-background-repeat: round;-fx-background-color: transparent; -fx-background-image: url('/model/homeResources/blue_button00.png'); -fx-background-size: contain;";
     
     public HomeButton(String text){
         setText(text);

@@ -64,6 +64,8 @@ public class SegmentTree {
         segmentScene = new Scene(segmentPane, SCENE_WIDTH, SCENE_HEIGHT);
         segmentStage = new Stage();
         segmentStage.setScene(segmentScene);
+        segmentStage.setMinWidth(SCENE_WIDTH+16);
+        segmentStage.setMinHeight(SCENE_HEIGHT+16);
         
         createSegmentPaneFooter();
         createSegmentPaneHeader();
@@ -421,9 +423,13 @@ public class SegmentTree {
         node[1] = new SegmentNode(centrePane, circleX, circleY, radius, 0, 1, input);
         actionAdd(1);
         int mid = (1+input)/2;
-        int value1 = buildSubTree(1*2, 1, mid, 5, circleX, circleX, circleY, blockHeight,radius);
-        int value2 = buildSubTree(3, mid+1, input, circleX, CENTRE_WIDTH-5, circleX, circleY, blockHeight,radius);
-        nodeValue[1] = value1 + value2;
+        if(input!=1){
+            int value1 = buildSubTree(1*2, 1, mid, 5, circleX, circleX, circleY, blockHeight,radius);
+            int value2 = buildSubTree(3, mid+1, input, circleX, CENTRE_WIDTH-5, circleX, circleY, blockHeight,radius);
+            nodeValue[1] = value1 + value2;
+        }else{
+            nodeValue[1]= data[0];
+        }
         
         actionSetValue(1, nodeValue[1]);
         actionColor(1, GREEN);

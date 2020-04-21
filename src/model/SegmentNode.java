@@ -55,11 +55,7 @@ public class SegmentNode {
     
     private Label createRange(String number){
         Label tempText = new Label(number);
-        //try {
-            //tempText.setFont(Font.loadFont(new FileInputStream(Font_PATH), 2*radius/number.length()));
-        //} catch (FileNotFoundException e) {
-            tempText.setFont(Font.font("Verdana", 2*radius/number.length()));
-        //}
+        tempText.setFont(Font.font("Verdana", 2*radius/number.length()));
         
         tempText.setPrefWidth(radius*2);
         tempText.setPrefHeight(radius*2);
