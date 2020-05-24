@@ -70,6 +70,14 @@ public class HomePage {
     private void createAVLTreeButton(){
         HomeButton button= new HomeButton("AVL Tree");
         addOptionButton(button);
+        
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                AVLtree tree = new AVLtree();
+                tree.avlStart(homeStage);
+            }
+        });
     }
     
     private void createSegmentTreeButton(){
