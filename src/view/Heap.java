@@ -364,6 +364,7 @@ public class Heap {
         heapStage.show();
         heapStage.setMaximized(true);
         heapStage.setMinWidth(SCENE_WIDTH+16);
+        System.out.println(heapPane.getWidth()+" "+heapPane.getHeight());
     }
     
     private void setFooter(){

@@ -13,7 +13,8 @@ import javafx.scene.text.Font;
 
 public class TestNode {
     
-    private int key;  
+    private int key; 
+    private double lCoor,rCoor,yCoor;
     private TestNode left;  
     private TestNode right;
     private Line tLine,lLine,rLine;
@@ -208,5 +209,31 @@ public class TestNode {
     public void setBf(int bf){
         bfLabel.setText("("+Integer.toString(bf)+")");
     }
+    
+     public double getlCoor() {
+        return lCoor;
+    }
+
+    public void setlCoor(double lCoor) {
+        this.lCoor = lCoor;
+    }
+
+    public double getrCoor() {
+        return rCoor;
+    }
+
+    public void setrCoor(double rCoor) {
+        this.rCoor = rCoor;
+    }
+
+    public double getyCoor() {
+        return yCoor;
+    }
+
+    public void setyCoor(double yCoor) {
+        this.yCoor = yCoor;
+    }
+    
+    
     
 }

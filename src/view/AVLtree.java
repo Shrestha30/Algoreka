@@ -215,14 +215,17 @@ public class AVLtree {
     private void addTestNode(TestNode node,double st,double end, int height,
             boolean isLine, TestNode preVisNode,int pos){
         if(node != null){
+            node.setlCoor(st);
+            node.setrCoor(end);
+            
             node.setRadius(radius);
             node.getCircle().setCenterX( (st+end)/2 );
             node.getCircle().setCenterY(30+ blockHeight/2 + (height-1)*blockHeight*2);
+            node.setyCoor(node.getCircle().getCenterY());
             
             if(isLine){
                 if(pos==1){
                     preVisNode.setRLine(node.getTLine());
-                    
                 }else{
                     preVisNode.setLLine(node.getTLine());
                 }
@@ -344,10 +347,9 @@ public class AVLtree {
         }  
   
         if (key < node.getKey()){
-            if(node.getLeft()!=null){
-                addActionMove(key, node, node.getLeft().getCircle().getCenterX(),
-                        node.getLeft().getCircle().getCenterY());
-            }
+            addActionMove(key, node, node.getLeft().getCircle().getCenterX(),
+                node.getLeft().getCircle().getCenterY());
+
             node.setLeft(insert(node.getLeft(), key));
         }
         else if (key > node.getKey()){
