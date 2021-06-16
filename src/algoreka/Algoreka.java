@@ -20,6 +20,7 @@ public class Algoreka extends Application {
     public void start(Stage primaryStage) {
         HomePage homePage = new HomePage();
         primaryStage = homePage.getHomeStage();
+        primaryStage.setTitle("ALGOREKA");
         primaryStage.show();
     }
 
